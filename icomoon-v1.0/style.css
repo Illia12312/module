@@ -26,13 +26,14 @@
 
 .icon-arrow_left:before {
   content: "\e900";
+  font-size: 22px;
 }
 .icon-cart:before {
   content: "\e901";
 }
 .icon-check:before {
   content: "\e902";
-  font-size: 15px;
+  font-size: 22px;
   color:rgb(27, 201, 6);
   padding: 1px;
   border: 1px solid rgb(27, 201, 6);
@@ -46,10 +47,12 @@
   color: red;
   position: relative;
   top:3px;
+  padding: 1px;
 }
 .icon-filter:before {
   content: "\e904";
   color: #fff;
+  font-size: 25px;
 }
 .icon-like_empty:before {
   content: "\e905";
@@ -62,9 +65,11 @@
 }
 .icon-search:before {
   content: "\e907";
+  font-size: 22px;
 }
 .icon-settings:before {
   content: "\e908";
+  font-size: 22px;
 }
 .icon-mac:before {
   content: "\e909";

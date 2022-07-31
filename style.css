@@ -27,7 +27,7 @@ ul {
 }
 
 .wrapper{
-    margin: 0 150px;
+    margin: 0 200px;
 
 }
 
@@ -89,8 +89,49 @@ ul {
     object-fit: contain;
 }
 
+
+/* finder */
 .finder{
     margin-bottom: 40px;
+}
+
+.finder-holder{
+    position: relative;
+}
+
+.search-but{
+    padding: 0%;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color:#585050;
+    position: absolute;
+    top: 30%;
+    left: 1.8%;
+}
+
+.settings-but{
+    padding: 8px;
+    border: none;
+    border-radius: 50%;
+    background: #0E49B5;
+    cursor: pointer;
+    position: absolute;
+    color: #FFF;
+    top: 17%;
+    right: 0.7%;
+}
+
+.filter-but{
+    padding: 8px;
+    border: none;
+    border-radius: 50%;
+    background: #0E49B5;
+    cursor: pointer;
+    position: absolute;
+    color: #FFF;
+    top: 17%;
+    right: 5%;
 }
 
 .input-finder{
@@ -98,21 +139,161 @@ ul {
     border-radius: 3px;
     width: 100%;
     height: 60px;
-    box-shadow: 0px 3px 5px 5px #DDDADA;
-    /* background: url(icons/search.svg)  no-repeat center left; */
-    padding-left:30px;
+    font-size: 18px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding-left:68px;
 }
+
+
 
 .mainblock{
     display: flex;
 }
 
+
+/* фильтр */
 .filter{
-    /* width: 33.33334%; */
+    align-self: flex-start;
+    width: 33.33334%;
+    margin-right: 70px;
+    border-width: 0 1px 0px 1px;
+    border-style: solid solid solid solid;
+    border-color: #9c27b0 #DDDDDD #DDDDDD #DDDDDD;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.filter-display{
+    border-radius: 0 0 5px 5px;
+}
+
+.filter-price{
+    border-radius: 5px 5px 0 0;
+}
+
+.filter-item{
+    width: 100%;
+    border-width: 0 0px 1px 0px;
+    border-style: solid solid solid solid;
+    border-color: #9c27b0 #DDDDDD #DDDDDD #DDDDDD;
+    font-size: 18px;
+    background-color: #EDF3FF;
+    position: relative;
+}
+
+.filter-span{
+    display: block;
+    padding: 18px 0 9px 30px;
+}
+
+.filter-wrapper{
+    cursor: pointer;
+}
+
+.icon-arrow_left{
+    position: absolute;
+    top: 16px;
+    right: 4%;
+    cursor: pointer;
+}
+/* второй уровень фильтра */
+.secondLevel{
+    display:none;
+    padding: 20px 0 0 29px;
+}
+
+.secondLevelItem{
+    margin-bottom: 18px;
+}
+
+.secondLevelCheck{
+    display: none;
+}
+.secondLevelCheck + label{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: #C4C4C4;
+    border: none;
+    position: relative;
+    top: 2px;     
+    margin-right: 10px;
+}
+
+.secondLevelCheck:checked + label:before {
+	background: #9FD468;
+}
+
+.secondLevelSpan{
+    font-size: 14px;
+    color: #000000;
+}
+
+.secondLevelClicked{
+    display: flex;
+    background-color: #FFF;
+    border-width: 1px 0px 0px 0px;
+    border-style: solid solid solid solid;
+    border-color: #DDDDDD #DDDDDD #DDDDDD #DDDDDD;
+}
+
+.secondLevelPriceClicked{
+    padding: 29px 65px 27px 29px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.filter-price-wrapper{
+    border-radius: 5px 5px 0 0;
+}
+
+.secondLevelOfPriceItemSpans{
+    margin-bottom: 17px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.secondLevelOfPriceItem{
+    display: flex;
+    justify-content: space-between;
+}
+
+.secondLevelInput{
+    width:189px;
+    height: 38px;
+    border-radius: 5px;
+    border: 1px solid #E2E2E2;
+    text-align: center;
+    font-size: 18px;
+    position: relative;
+    bottom: 6px;
+}
+
+.secondLevelColorClicked{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.secondLevelOsClicked{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0 10px 31px;
+}
+
+.secondLevelOfDisplay{
+    flex-direction: column;
+    border-radius: 0 0 5px 5px;
+}
+
+.filter-display-wrapper{
+    border-radius: 0 0 5px 5px;
+}
+
+
+ /* карточки */
 .items{
-    /* width:66.66666%; */
+    width:66.66666%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -120,9 +301,9 @@ ul {
 
 .card{
     position: relative;
-    box-shadow: 0px 3px 5px 5px #E0E0E0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 5px;
-    margin: 0 40px 50px 0;
+    margin: 0 0px 50px 0;
     width: 320px;
     text-align: center;
 }
@@ -187,8 +368,7 @@ ul {
     padding-bottom: auto;
 }
 
-.spanDiv,
-.second{
+.spanDiv{
     font-weight: 700;
 }
 
@@ -201,6 +381,121 @@ ul {
     margin:19px 23px 29px 0px;
 }
 
+.firstFirst,
+.firstSecond{
+    margin-bottom: 6px;
+}
+
+.firstSecond{
+    font-weight: 700;
+}
+
 .secondFirst{
     text-align: left;
+}
+
+/* Popup styles */
+.popup{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.65);
+    width: 100%;
+    height:100%;
+    left:0;
+    top: 0;
+    display: none;
+    z-index: 100;
+}
+
+.popupBody{
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popupContent{
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: 1px rgb(109, 128, 134) solid;
+    position: relative;
+    border-radius: 5px;
+}
+
+.popup-describe-div{
+    border-width: 0px 1px 0 1px;
+    border-style: solid solid solid solid;
+    border-color: #9c27b0 #DDDDDD #DDDDDD #DDDDDD;
+}
+
+.describe-wrapper{
+    margin: 0 65px 0 75px;
+    padding: 35px 0 75px 0;
+}
+
+.likeDivInPopup{
+    margin-bottom: 29px;
+}
+
+.describe-divIndiv{
+    padding-bottom: 15px;
+    font-size: 14px;
+    color: rgba(118, 114, 114, 1);
+}
+
+.describe-title{
+    color: #3B3E66;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 21px;
+}
+
+.popupGrey{
+    display: flex;
+    justify-content: space-between;
+    color: #3B3E66;
+    background-color: #DAE2EA;
+    font-size: 14px;
+    padding-bottom: auto;
+    border-radius: 10px;
+}
+
+.popupFirstDiv{
+    display: flex;
+    margin:19px 62px 29px 13px;
+}
+
+.popupSecondDiv{
+    margin:19px 23px 29px 0px;
+    text-align: center;
+}
+
+.describeItems{
+    color: #000;
+    font-weight: 500;
+}
+
+.popup-img{
+    height: 250px;
+    width: auto;
+    margin: 107px 16px 134px 28px;
+}
+
+.popup-price-wrapper{
+    padding: 176px 69px 148px 75px;
+    text-align: center;
+}
+
+.price-title{
+    margin:0;
+    padding-bottom: 23px;
+    color:#3B3E66;
+    font-size: 36px;
+}
+
+.price-stock{
+    margin: 0;
+    color:#3B3E66;
+    padding-bottom: 31px;
+    font-size: 18px;
 }
