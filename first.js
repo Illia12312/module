@@ -4,7 +4,7 @@ let item = document.querySelector('div.items');
 let counter = 0;
 for(let i of items){
     let div = document.createElement('div');
-    div.classList.add('card');
+    div.classList.add('card', `card-number-${counter}`);
     let span = document.createElement('span');
     span.classList.add('icon-like_empty');
     let img = document.createElement('img');
@@ -119,13 +119,37 @@ for(let i=0; i<counter; i++){
         }
     })
 };
-
 const popupBody = document.querySelector('.popupBody');
 
 popup.addEventListener('click', function(e){
     if(e.target == popupBody){
         popup.style.display = 'none';
     };
+});
+
+
+
+// поиск 
+inputCounter = 0;
+const inputFinder = document.querySelector('.input-finder');
+const searchBut = document.querySelector('.search-but');
+inputFinder.addEventListener('change', function(e){
+    for(let i=0; i<counter; i++){
+        let nameToLowerCase = items[i].name.toLowerCase();
+        let inputValueToLowerCase = inputFinder.value.toLowerCase();
+        if(nameToLowerCase.includes(inputValueToLowerCase)){
+            let deletedCard = document.querySelector(`.card-number-${inputCounter}`)
+            deletedCard.style.display = 'block'
+            inputCounter++;
+        }else{
+            let deletedCard = document.querySelector(`.card-number-${inputCounter}`)
+            deletedCard.style.display = 'none'
+            inputCounter++;
+        }
+        if(inputCounter == 34){
+            inputCounter = 0;
+        }
+    }
 });
 
 
@@ -226,4 +250,35 @@ filterDisplayWrap.addEventListener('click', function(){
         secondLevelDisplay.classList.remove('secondLevelDisplayClicked', 'secondLevelClicked');
         e = 0;
     }
+})
+
+
+//settings popup
+let closePopupSettingsCounter = 0;
+const settingsPopup = document.querySelector('.popup--settings-but');
+const settingsButton = document.querySelector('.settings-but');
+settingsButton.addEventListener('click', function(){
+    settingsPopup.style.display = 'block';
+    settingsButton.style.backgroundColor = '#102243';
+    closePopupSettingsCounter = 1;
+})
+
+const wrapper = document.querySelector('.wrapper');
+
+if(closePopupSettingsCounter == 1){
+    wrapper.addEventListener('click', function(e){
+        if(e.target != settingsPopup){
+            settingsPopup.style.display = 'none';
+        };
+        console.log(this)
+    });
+}
+
+//filter popup 
+const filterPopup = document.querySelector('.popup--filter-but');
+const filterButton = document.querySelector('.filter-but');
+
+filterButton.addEventListener('click', function(){
+    filterPopup.style.display = 'block';
+    filterButton.style.backgroundColor = '#102243';
 })
