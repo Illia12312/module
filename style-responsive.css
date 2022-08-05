@@ -1,0 +1,181 @@
+@media (max-width:1100px) {
+    .wrapper{
+        padding: 0 20px;
+    }
+
+    .filter{
+        margin-right: 30px;
+    }
+
+    .popupBody{
+        padding: 0 20px;
+    }
+
+    .popup-img{
+        margin-left: 4px;
+    }
+
+    .popup-price-wrapper {
+        padding: 176px 39px 148px 45px;
+    }
+
+    .filter-but{
+        right: 5.5%;
+    }
+}
+
+@media (max-width:991px) {
+    .wrapper{
+        padding: 0 50px;
+    }
+
+    .filter{
+        margin-right: 10px;
+        width: 50%;
+    }
+
+    .secondLevelPriceClicked {
+        padding: 29px 30px 27px 29px;
+    }
+
+    .items {
+        justify-content:end;
+    }
+
+    .card{
+        width: 340px;
+    }
+
+    .describe-wrapper {
+        margin: 0 10px 0 10px;
+    }
+
+    .popupBody{
+        padding: 0 20px;
+    }
+
+    .popup-img{
+        margin-left: 4px;
+        height: 170px;
+        width: auto;
+    }
+
+    .popup-price-wrapper {
+        padding: 176px 19px 148px 25px;
+    }
+
+    .filter-but{
+        right: 7%;
+    }
+
+    .slider--airpods-pro .slider-block{
+        left: 23%;
+        top: 14%;
+    }
+    
+    .slider--apple-tv .slider-block .slider-title{
+        font-size: 60px;
+    }
+
+    .slider--apple-tv .slider-block{
+        left: 45%;
+        top: 3%;
+    }
+    
+    .slider--macbook .slider-block{
+        left: 10%;
+        top: 11%;
+    }
+    
+    .slider--watch .slider-block{
+        left: 3%;
+        top: 6%;
+    }
+
+    .slider--watch .slider-block .slider-title{
+        font-size: 50px;
+    }
+
+    .slider-block{
+        top:11%;
+        left:32%;
+    }
+}
+
+@media (max-width:767px) {
+    .wrapper{
+        padding: 0 50px;
+    }
+
+    .filter{
+        margin-right: 10px;
+        width: 50%;
+    }
+
+    .secondLevelPriceClicked {
+        padding: 29px 30px 27px 29px;
+    }
+
+    .items {
+        justify-content:end;
+    }
+
+    .card{
+        width: 340px;
+    }
+
+    .describe-wrapper {
+        margin: 0 10px 0 10px;
+    }
+
+    .popupBody{
+        padding: 0 20px;
+    }
+
+    .popup-img{
+        margin-left: 4px;
+        height: 170px;
+        width: auto;
+    }
+
+    .popup-price-wrapper {
+        padding: 176px 19px 148px 25px;
+    }
+
+    .filter-but{
+        right: 7%;
+    }
+
+    .slider--airpods-pro .slider-block{
+        left: 23%;
+        top: 14%;
+    }
+    
+    .slider--apple-tv .slider-block .slider-title{
+        font-size: 60px;
+    }
+
+    .slider--apple-tv .slider-block{
+        left: 45%;
+        top: 3%;
+    }
+    
+    .slider--macbook .slider-block{
+        left: 10%;
+        top: 11%;
+    }
+    
+    .slider--watch .slider-block{
+        left: 3%;
+        top: 6%;
+    }
+
+    .slider--watch .slider-block .slider-title{
+        font-size: 50px;
+    }
+
+    .slider-block{
+        top:11%;
+        left:32%;
+    }
+}
