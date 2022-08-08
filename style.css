@@ -411,6 +411,7 @@ ul {
 }
 
 .secondLevelItem--checkSpan{
+    margin-top: 1px;
     margin-left: -25px;
     position: absolute;
     width: 15px;
@@ -473,6 +474,11 @@ ul {
     bottom: 6px;
 }
 
+.secondLevelMemoryClicked{
+    display: flex;
+    flex-direction: column;
+}
+
 .secondLevelColorClicked{
     display: flex;
     flex-wrap: wrap;
@@ -493,6 +499,15 @@ ul {
     border-radius: 0 0 5px 5px;
 }
 
+/* .secondLevelOfColor{
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+.secondLevelOfMemory,
+.secondLevelItemOfColor{
+    padding-right: 50px;
+}
 
  /* карточки */
 .items{

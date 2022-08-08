@@ -79,7 +79,7 @@ for(let i of items){
     counter++;
 }
 
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// модалка карточек
 const popup = document.querySelector('.popup');
 const popupDescribeDiv = document.querySelector('div.popup-describe-div');
 
@@ -116,6 +116,13 @@ for(let i=0; i<counter; i++){
             priceTitleInPopupPriceDiv.innerHTML = `$ ${items[i].price}`;
             priceStockInPopupPriceDiv = document.querySelector('div.price-stock');
             priceStockInPopupPriceDiv.innerHTML = `Stock: ${items[i].orderInfo.inStock} pcs.`
+            let cardPopupBut = document.querySelector('.card-popup-but');
+            if(items[i].orderInfo.inStock == 0){
+                cardPopupBut.classList.add('but_disabled');
+            }else{
+                cardPopupBut.classList.remove('but_disabled');
+                cardPopupBut.classList.add('but_add');
+            }
         }
     })
 };
@@ -253,32 +260,175 @@ filterDisplayWrap.addEventListener('click', function(){
 })
 
 
-//settings popup
-let closePopupSettingsCounter = 0;
+//settings popup & filter popup 
 const settingsPopup = document.querySelector('.popup--settings-but');
 const settingsButton = document.querySelector('.settings-but');
-settingsButton.addEventListener('click', function(){
-    settingsPopup.style.display = 'block';
-    settingsButton.style.backgroundColor = '#102243';
-    closePopupSettingsCounter = 1;
-})
-
-const wrapper = document.querySelector('.wrapper');
-
-if(closePopupSettingsCounter == 1){
-    wrapper.addEventListener('click', function(e){
-        if(e.target != settingsPopup){
-            settingsPopup.style.display = 'none';
-        };
-        console.log(this)
-    });
-}
-
-//filter popup 
 const filterPopup = document.querySelector('.popup--filter-but');
 const filterButton = document.querySelector('.filter-but');
 
-filterButton.addEventListener('click', function(){
-    filterPopup.style.display = 'block';
-    filterButton.style.backgroundColor = '#102243';
+function isHidden(el) {
+    const style = window.getComputedStyle(el);
+    return style.display === "none";
+}
+
+settingsButton.addEventListener("click", function () {
+    if (isHidden(settingsPopup)) {
+        settingsPopup.style.display = "block";
+        settingsButton.style.backgroundColor = "#102243";
+        filterPopup.style.display = "none";
+        filterButton.style.backgroundColor = "#0E49B5";
+    } else {
+        settingsPopup.style.display = "none";
+        settingsButton.style.backgroundColor = "#0E49B5";
+    }
+});
+filterButton.addEventListener("click", function () {
+if (isHidden(filterPopup)) {
+    filterPopup.style.display = "block";
+    filterButton.style.backgroundColor = "#102243";
+    settingsPopup.style.display = "none";
+    settingsButton.style.backgroundColor = "#0E49B5";
+} else {
+    filterPopup.style.display = "none";
+    filterButton.style.backgroundColor = "#0E49B5";
+}
+});
+
+
+// данные для фильтра
+let maxPrice = items[0].price;
+let minPrice = items[0].price;
+let itemsColorsArr = [];
+let itemsStorsgeArr = [];
+for(let j = 0; j < counter; j++){
+    if(items[j].price>maxPrice){
+        maxPrice = items[j].price;
+    }else if(items[j].price<minPrice){
+        minPrice = items[j].price;
+    }
+
+    if(!itemsStorsgeArr.includes(items[j].storage)){
+        itemsStorsgeArr.push(items[j].storage);
+    }
+
+    for(let i of items[j].color){
+        if(!itemsColorsArr.includes(i)){
+            itemsColorsArr.push(i);
+        }
+    }
+};
+
+// инпуты ==== нужно обьеденить ф-ции
+const secondLevelInputFrom = document.querySelector('.secondLevelInputFrom');
+const secondLevelInputTo = document.querySelector('.secondLevelInputTo');
+// let priceToCounter = 0;
+secondLevelInputTo.addEventListener('change', function(){
+    if(secondLevelInputTo.value>maxPrice){
+        secondLevelInputTo.value = maxPrice;
+    }
+    if(secondLevelInputTo.value<minPrice){
+        secondLevelInputTo.value = minPrice;
+    }
+
+    if(secondLevelInputFrom.value > secondLevelInputTo.value && secondLevelInputFrom.value != maxPrice){
+        secondLevelInputTo.value = secondLevelInputFrom.value;
+        secondLevelInputTo.value++;
+    }
+
+    // for(let i=0; i<counter; i++){      
+    //     if(secondLevelInputFrom.value < minPrice && secondLevelInputTo.value<=items[i].price){
+    //         let deletedCard = document.querySelector(`.card-number-${priceToCounter}`)
+    //         deletedCard.style.display = 'none';
+    //         priceToCounter++;
+    //     }
+    //     else if(secondLevelInputTo.value<=items[i].price && secondLevelInputFrom.value<=items[i].price){
+    //         let deletedCard = document.querySelector(`.card-number-${priceToCounter}`)
+    //         deletedCard.style.display = 'none';
+    //         priceToCounter++;
+    //     }else{
+    //         let deletedCard = document.querySelector(`.card-number-${priceToCounter}`)
+    //         deletedCard.style.display = 'block';
+    //         priceToCounter++;
+    //     }
+    // }
+    // priceToCounter = 0;
 })
+
+console.log(secondLevelInputFrom.value);
+
+// let priceFromCounter = 0;
+secondLevelInputFrom.addEventListener('change', function(){
+    if(secondLevelInputFrom.value<minPrice){
+        secondLevelInputFrom.value = minPrice;
+    }
+    if(secondLevelInputFrom.value>maxPrice){
+        secondLevelInputFrom.value = maxPrice;
+    }
+
+    if(secondLevelInputFrom.value > secondLevelInputTo.value && secondLevelInputFrom.value != maxPrice && secondLevelInputTo.value != ''){
+        secondLevelInputTo.value = secondLevelInputFrom.value;
+        secondLevelInputTo.value++;
+    }
+
+    // for(let i=0; i<counter; i++){
+    //     console.log('fff');
+    //     console.log(secondLevelInputTo.value);
+    //     if(secondLevelInputTo.value < minPrice && secondLevelInputFrom.value>=items[i].price){
+    //         let deletedCard = document.querySelector(`.card-number-${priceFromCounter}`)
+    //         deletedCard.style.display = 'none';
+    //         priceFromCounter++;
+    //     }
+    //     else if(secondLevelInputFrom.value>=items[i].price && secondLevelInputTo.value>=items[i].price){
+    //         let deletedCard = document.querySelector(`.card-number-${priceFromCounter}`)
+    //         deletedCard.style.display = 'none';
+    //         priceFromCounter++;
+    //     }else{
+    //         let deletedCard = document.querySelector(`.card-number-${priceFromCounter}`)
+    //         deletedCard.style.display = 'block';
+    //         priceFromCounter++;
+    //     }
+    // }
+    // priceFromCounter = 0;
+})
+
+//colors and for memory
+for(let i of itemsColorsArr){
+    let secondLevelOfColorUl = document.querySelector('.secondLevelOfColor');
+    let secondLevelItem = document.createElement('li');
+    secondLevelItem.classList.add('secondLevelItem', 'secondLevelItemOfColor');
+    let checkLabel = document.createElement('label');
+    checkLabel.classList.add('check-label', 'option');
+    let secondLevelCheck = document.createElement('input');
+    secondLevelCheck.setAttribute('type', 'checkbox')
+    secondLevelCheck.classList.add('secondLevelCheck', 'secondLevelCheckForColor', `${i.replace(' ', '-')}`);
+    let secondLevelItemCheckSpan = document.createElement('span');
+    secondLevelItemCheckSpan.classList.add('secondLevelItem--checkSpan');
+    let secondLevelSpan = document.createElement('span');
+    secondLevelSpan.classList.add('secondLevelSpan');
+    secondLevelSpan.innerHTML = i;
+    checkLabel.append(secondLevelCheck, secondLevelItemCheckSpan);
+    secondLevelItem.append(checkLabel, secondLevelSpan);
+    secondLevelOfColorUl.append(secondLevelItem);
+}
+
+for(let i of itemsStorsgeArr){
+    if(i==null){
+        continue;
+    }
+    let secondLevelOfStorage = document.querySelector('.secondLevelOfMemory');
+    let secondLevelItem = document.createElement('li');
+    secondLevelItem.classList.add('secondLevelItem', 'secondLevelItemOfColor');
+    let checkLabel = document.createElement('label');
+    checkLabel.classList.add('check-label', 'option');
+    let secondLevelCheck = document.createElement('input');
+    secondLevelCheck.setAttribute('type', 'checkbox')
+    secondLevelCheck.classList.add('secondLevelCheck');
+    let secondLevelItemCheckSpan = document.createElement('span');
+    secondLevelItemCheckSpan.classList.add('secondLevelItem--checkSpan');
+    let secondLevelSpan = document.createElement('span');
+    secondLevelSpan.classList.add('secondLevelSpan');
+    secondLevelSpan.innerHTML = `${i.toFixed(0)} Gb`;
+    checkLabel.append(secondLevelCheck, secondLevelItemCheckSpan);
+    secondLevelItem.append(checkLabel, secondLevelSpan);
+    secondLevelOfStorage.append(secondLevelItem);
+}
