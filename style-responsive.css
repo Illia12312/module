@@ -179,3 +179,115 @@
         left:32%;
     }
 }
+
+
+
+@media (max-width:500px) {
+    .wrapper{
+        padding: 0 25px;
+    }
+
+    .popup--cart{
+        padding-right: 20px;
+        position: absolute;
+        right:0;
+        top: 43px;
+        display: none;
+        z-index: 200;
+        background: none;
+    }
+    
+    .popupBody--cart{
+        min-height: 100%;
+    }
+    
+    .popupContent--cart{
+        background-color: #FFF;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 5px;
+    }
+    
+    .cart-checkout-holder{
+        text-align: center;
+        padding-bottom: 36px;
+    }
+    
+    .cart-checkout-holder-title{
+        font-size: 24px;
+        font-weight: 700;
+        padding: 24px 0 7px 0;
+        margin: 0;
+    }
+
+    .filter{
+        margin-right: 10px;
+        width: 50%;
+    }
+
+    .secondLevelPriceClicked {
+        padding: 29px 30px 27px 29px;
+    }
+
+    .items {
+        justify-content:end;
+    }
+
+    .card{
+        width: 340px;
+    }
+
+    .describe-wrapper {
+        margin: 0 10px 0 10px;
+    }
+
+    .popupBody{
+        padding: 0 20px;
+    }
+
+    .popup-img{
+        margin-left: 4px;
+        height: 170px;
+        width: auto;
+    }
+
+    .popup-price-wrapper {
+        padding: 176px 19px 148px 25px;
+    }
+
+    .filter-but{
+        right: 7%;
+    }
+
+    .slider--airpods-pro .slider-block{
+        left: 23%;
+        top: 14%;
+    }
+    
+    .slider--apple-tv .slider-block .slider-title{
+        font-size: 60px;
+    }
+
+    .slider--apple-tv .slider-block{
+        left: 45%;
+        top: 3%;
+    }
+    
+    .slider--macbook .slider-block{
+        left: 10%;
+        top: 11%;
+    }
+    
+    .slider--watch .slider-block{
+        left: 3%;
+        top: 6%;
+    }
+
+    .slider--watch .slider-block .slider-title{
+        font-size: 50px;
+    }
+
+    .slider-block{
+        top:11%;
+        left:32%;
+    }
+}
